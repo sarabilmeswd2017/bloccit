@@ -54,7 +54,7 @@ let(:my_question) { Question.create!(id: 1, title: RandomData.random_sentence, b
     end
   end
 
-  describe "QUESTION create" do
+  describe "POST create" do
     # #4
     it "increases the number of Question by 1" do
       expect{question :create, question: {title: RandomData.random_sentence, body: RandomData.random_paragraph, resolved: false}}.to change(question,:count).by(1)
