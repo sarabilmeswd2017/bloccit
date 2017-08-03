@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   resources :advertisements
 
+  resources :sessions, only: [:new, :create, :destroy]
+
   post 'users/confrim' => 'users#confirm'
 
   get 'about' => 'welcome#about'
