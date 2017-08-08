@@ -18,7 +18,7 @@
        <%= render 'comments/form', comment: Comment.new, post: @post %>
      <% end %>
    </div>
-   <% if user_is_authorized_as_mod_or_admin_or_current_user?(@post) %>
+   <% if user_is_authorized_as_admin_or_current_user?(@post) %>
    <div class="col-md-4">
       <%= link_to "Edit", edit_topic_post_path(@post.topic, @post), class: 'btn btn-success' %>
       <% unless user_is_authorized_as_mod?(@post) %>
