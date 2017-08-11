@@ -9,6 +9,8 @@ Rails.application.routes.draw do
      resources :comments, only: [:create, :destroy]
    end
 
+  
+
   resources :users, only: [:new, :create]
 
   resources :questions
