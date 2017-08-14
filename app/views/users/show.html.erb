@@ -2,7 +2,7 @@
    <div class="col-md-8">
      <div class="media">
        <br />
- 
+
        <% avatar_url = @user.avatar_url(128) %>
        <% if avatar_url %>
          <div class="media-left">
@@ -22,7 +22,29 @@
  </div>
 
  <h2>Posts</h2>
- <%= render @user.posts %>
+ <% if @user.posts.any? %>
+   <%= render @posts %>
+ <% else %>
+   <h4> This user does not have any posts.</h4>
+ <% end %>
+ <h2>Favorite Posts</h2>
 
+ <% if @user.favorites.any? %>
+ <% if avatar_url %>
+   <div class="media-left">
+
+     <%= image_tag avatar_url, class: 'media-object' %>
+   </div>
+ <% end %>
+ <div class="pull-left">
+   <%= render @fave_posts %>
+ </div>
+ <% else %>
+   <h4> This user does not have any favorite posts.</h4>
+ <% end %>
  <h2>Comments</h2>
- <%= render @user.comments %>
+ <% if @user.comments.any? %>
+   <%= render @user.comments %>
+ <% else %>
+   <h4> This user does not have any comments.</h4>
+ <% end %>
