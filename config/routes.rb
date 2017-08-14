@@ -8,6 +8,10 @@ Rails.application.routes.draw do
    resources :posts, only: [] do
      resources :comments, only: [:create, :destroy]
      resources :favorites, only: [:create, :destroy]
+
+     post '/up-vote' => 'votes#up_vote', as: :post_up_vote
+     post '/down-vote' => 'votes#down_vote', as: :post_down_vote
+
    end
 
 
@@ -20,8 +24,6 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
 
-  post '/up-vote' => 'votes#up_vote', as: :post_up_vote
-  post '/down-vote' => 'votes#down_vote', as: :post_down_vote
 
   post 'users/confrim' => 'users#confirm'
 
